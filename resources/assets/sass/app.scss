@@ -19,6 +19,7 @@ body {
   border-top: 4px solid #00b5ad;
   margin-bottom: 40px;
   margin-top: 0px;
+
   .dropdown-menu {
     padding: 0px;
 
@@ -31,9 +32,9 @@ body {
       }
     }
   }
-
 }
 /* Sticky footer styles */
+
 html {
   position: relative;
   min-height: 100% ;
@@ -65,6 +66,7 @@ body {
     }
   }
 }
+
 /* User register page */
 .register-page {
   img.captcha {
@@ -73,6 +75,7 @@ body {
     cursor: pointer;
   }
 }
+
 /* User profile page */
 .users-show-page {
   .user-info {
@@ -80,14 +83,6 @@ body {
       margin-bottom: 0px;
     }
   }
-  .meta {
-    font-size: .9em;
-    color: #b3b3b3;
-  }
-  .reply-content {
-    margin: 6px 0;
-  }
-}
 
   .nav-tabs {
     margin-bottom: 20px;
@@ -112,9 +107,18 @@ body {
   .pagination {
     margin: 12px 0;
   }
+
+  .meta {
+    font-size: .9em;
+    color: #b3b3b3;
+  }
+  .rpely-content {
+    margin: 6px 0;
+  }
 }
+
 /* Topic Index Page */
-.topics-index-page ,.categories-show-page{
+.topics-index-page, .categories-show-page, .root-page {
   .topic-list {
     .nav > li > a {
       position: relative;
@@ -143,6 +147,7 @@ body {
     }
   }
 }
+
 /* Topic Show Page */
 
 @import "topic_body";
@@ -159,6 +164,7 @@ body {
     }
   }
 }
+
 .topic-reply {
   hr {
     margin-top: 16px;
@@ -172,5 +178,40 @@ body {
   .meta {
     font-size: .9em;
     color: #b3b3b3;
+  }
+}
+
+/* Notifications badge */
+
+.notifications-badge {
+  margin-top: -1;
+
+  .badge-fade {
+    background-color: #EBE8E8;
+  }
+
+  .badge-hint {
+    background-color: #d15b47 !important;;
+  }
+}
+
+/* Sidebar */
+
+.sidebar {
+  .panel-body {
+    padding: 12px;
+  }
+
+  hr {
+    margin-top: 8px;
+    margin-bottom: 10px;
+  }
+
+  .active-users {
+    a.media {
+      color: #797878;
+      line-height: 26px;
+      font-size: 0.9em;
+    }
   }
 }
