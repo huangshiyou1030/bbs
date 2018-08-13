@@ -1,16 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use app\index\controller\Emailtest;
 use App\Models\Topic;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\TopicRequest;
 use App\Models\Category;
 use Auth;
 use App\Handlers\ImageUploadHandler;
-use think\response\Redirect;
 use App\Models\User;
 use App\Models\Link;
 
