@@ -12,6 +12,8 @@ class AddReferences extends Migration
 
             // 当 user_id 对应的 users 表数据被删除时，删除词条
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            // 当 category_id 对应的 categories 表数据被删除时，删除词条
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
 
         Schema::table('replies', function (Blueprint $table) {
@@ -29,6 +31,7 @@ class AddReferences extends Migration
         Schema::table('topics', function (Blueprint $table) {
             // 移除外键约束
             $table->dropForeign(['user_id']);
+            $table->dropForeign(['category_id']);
         });
 
         Schema::table('replies', function (Blueprint $table) {
