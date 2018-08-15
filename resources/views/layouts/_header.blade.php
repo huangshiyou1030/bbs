@@ -13,14 +13,13 @@
 
             <!-- Branding Image -->
             <a class="navbar-brand" href="{{ url('/') }}">
-    LaraBBS
+    首页
             </a>
         </div>
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                <li class="{{ active_class(if_route('topics.index')) }}"><a href="{{ route('topics.index') }}">话题</a></li>
                 @foreach ($categories as $category)
                 <li class="{{ active_class((if_route('categories.show') && if_route_param('category', $category->id))) }}"><a href="{{ route('categories.show', $category->id) }}">{{$category->name}}</a></li>
                 @endforeach

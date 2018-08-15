@@ -8,7 +8,6 @@ use Auth;
 use App\Handlers\ImageUploadHandler;
 use App\Models\User;
 use App\Models\Link;
-use App\Models\Category;
 class TopicsController extends Controller
 {
     public function __construct()
@@ -16,13 +15,12 @@ class TopicsController extends Controller
         $this->middleware('auth', ['except' => ['index', 'show']]);
     }
 
-	public function index(Request $request, Topic $topic ,User $user ,Link $link, Category $category)
+	public function index(Request $request, Topic $topic ,User $user ,Link $link)
 	{
 	    $links = $link->getAllCached();
         $topics = $topic->withOrder($request->order)->paginate(20);
         $active_users = $user->getActiveUsers();
-        $categories = $category->all();
-        return view('topics.index', compact('topics', 'active_users','links','categories'));
+        return view('topics.index', compact('topics', 'active_users','links'));
 	}
 
     public function show(Topic $topic,Request $request)
@@ -30,14 +28,14 @@ class TopicsController extends Controller
         if(! empty($topic->slug) && $topic->slug != $request->slug){
             return redirect($topic->link(),301);
         }
-        $categories = Category::all();
-        return view('topics.show', compact('topic','categories'));
+
+        return view('topics.show', compact('topic'));
     }
 
 	public function create(Topic $topic)
 	{
-	    $categories = Category::all();
-		return view('topics.create_and_edit', compact('topic','categories'));
+
+		return view('topics.create_and_edit', compact('topic'));
 	}
 
 	public function store(TopicRequest $request,Topic $topic)
@@ -51,15 +49,14 @@ class TopicsController extends Controller
 	public function edit(Topic $topic)
 	{
         $this->authorize('update', $topic);
-        $categories = Category::all();
-		return view('topics.create_and_edit', compact('topic','categories'));
+
+		return view('topics.create_and_edit', compact('topic'));
 	}
 
 	public function update(TopicRequest $request, Topic $topic)
 	{
 		$this->authorize('update', $topic);
 		$topic->update($request->all());
-
 		return redirect()->to($topic->link())->with('message', 'Updated successfully.');
 	}
 

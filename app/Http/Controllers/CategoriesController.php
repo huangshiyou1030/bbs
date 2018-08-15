@@ -18,8 +18,7 @@ class CategoriesController extends Controller
         // 活跃用户列表
         $active_users = $user->getActiveUsers();
         $links = $link->getAllCached();
-        $categories = $category->all();
         //传参到模板中
-        return view('topics.index',compact('topics','category','active_users','links','categories'));
+        return view('topics.index',compact('topics','category','active_users','links'));
     }
 }
