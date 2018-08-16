@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Cache;
 use App\Models\Category;
+use App\Models\Tag;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -27,8 +28,15 @@ class AppServiceProvider extends ServiceProvider
                 // 获取分类导航
                 return Category::select('id', 'name')->orderBy('created_at')->get();
             });
+            $tags = Cache::remember('common:tag', 10080, function () {
+                // 获取标签
+                return Tag::select('id', 'name')->orderBy('created_at')->get();
+            });
+
+
+
             // 分配数据
-            $assign = compact('categories');
+            $assign = compact('categories','tags');
             $view->with($assign);
         });
 
