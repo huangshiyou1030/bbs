@@ -4,8 +4,6 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Cache;
-use App\Models\Category;
-use App\Models\Tag;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -19,22 +17,16 @@ class AppServiceProvider extends ServiceProvider
 		\App\Models\Reply::observe(\App\Observers\ReplyObserver::class);
 		\App\Models\Topic::observe(\App\Observers\TopicObserver::class);
         \App\Models\Link::observe(\App\Observers\LinkObserver::class);
-
+        \App\Models\Tag::observe(\App\Observers\TagObserver::class);
+        \App\Models\Category::observe(\App\Observers\CategoryObserver::class);
         //
         \Carbon\Carbon::setLocale('zh');
         //分配前台通用的数据
         view()->composer('layouts/*', function($view) {
-            $categories = Cache::remember('common:category', 10080, function () {
-                // 获取分类导航
-                return Category::select('id', 'name')->orderBy('created_at')->get();
-            });
-            $tags = Cache::remember('common:tag', 10080, function () {
-                // 获取标签
-                return Tag::select('id', 'name')->orderBy('created_at')->get();
-            });
-
-
-
+            $cateModel = new  \App\Models\Category();
+            $categories = $cateModel->getAllCached();
+            $tagModel = new  \App\Models\Tag();
+            $tags = $tagModel->getAllCached();
             // 分配数据
             $assign = compact('categories','tags');
             $view->with($assign);

@@ -40,13 +40,13 @@ class TopicsController extends Controller
     public function create(Topic $topic)
     {
         $topic->tag_ids = [];
+
         return view('topics.create_and_edit', compact('topic'));
     }
 
     public function store(TopicRequest $request, Topic $topic, TopicTag $topicTag)
     {
         $topic->fill($request->all());
-        $tags = Tag::whereIn('id', $request->tag_ids)->get()->toArray();
         $topicTag->addTagIds($topic->id,$request->tag_ids);
         $topic->user_id = Auth::id();
         $topic->save();
@@ -64,10 +64,6 @@ class TopicsController extends Controller
     {
         $this->authorize('update', $topic);
         $topic->update($request->all());
-        // 先彻底删除此文章下的所有标签
-        $articleTagMap = [
-            'topic_id' => $topic->id
-        ];
         //先删除该文章下的所有标签
         \DB::table('topic_tags')->where('topic_id', $topic->id)->delete();
         $topicTag->addTagIds($topic->id,$request->tag_ids);

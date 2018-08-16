@@ -5,7 +5,28 @@
         </a>
     </div>
 </div>
+@if (count($links))
+    <div class="panel panel-default b-tags">
+        <div class="panel-body active-users">
 
+            <div class="text-center">标签</div>
+            <hr>
+            <ul class="b-all-tname">
+            <?php $tag_i = 0; ?>
+            @foreach ($tags as $tag)
+                <?php $tag_i++; ?>
+                <?php $tag_i=$tag_i==5?1:$tag_i; ?>
+                <li class="b-tname">
+                <a class="tstyle-{{ $tag_i }}" href="{{ route('tags.show', $tag->id)  }}">
+                       {{ $tag->name }}
+                </a>
+                </li>
+            @endforeach
+            </ul>
+
+        </div>
+    </div>
+@endif
 @if (count($active_users))
     <div class="panel panel-default">
         <div class="panel-body active-users">
@@ -27,6 +48,7 @@
         </div>
     </div>
 @endif
+
 @if (count($links))
     <div class="panel panel-default">
         <div class="panel-body active-users">

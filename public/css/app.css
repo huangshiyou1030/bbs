@@ -9018,3 +9018,69 @@ body {
   font-size: 0.9em;
 }
 
+.sidebar .active-users .b-all-tname {
+  overflow: hidden;
+  padding-left: 0px;
+}
+
+.sidebar .active-users .b-all-tname .b-tname {
+  margin-top: 5px;
+  margin-right: 5px;
+  list-style-type: none;
+  float: left;
+}
+
+.sidebar .active-users .b-all-tname .b-tname a {
+  display: block;
+  padding: 0 10px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 10px;
+  font-family: SimSun;
+  color: #fff;
+}
+
+.sidebar .active-users .b-all-tname .b-tname a:hover {
+  border-radius: 0;
+}
+
+.sidebar .active-users .b-all-tname .b-tname .link-a {
+  margin-right: 5px;
+}
+
+.sidebar .active-users .b-all-tname .b-tname .tstyle-1 {
+  background: #43AC6A;
+}
+
+.sidebar .active-users .b-all-tname .b-tname .tstyle-1:hover {
+  text-decoration: none;
+  background: #028231;
+}
+
+.sidebar .active-users .b-all-tname .b-tname .tstyle-2 {
+  background: #F3A557;
+}
+
+.sidebar .active-users .b-all-tname .b-tname .tstyle-2:hover {
+  text-decoration: none;
+  background: #E97705;
+}
+
+.sidebar .active-users .b-all-tname .b-tname .tstyle-3 {
+  background: #F25E45;
+}
+
+.sidebar .active-users .b-all-tname .b-tname .tstyle-3:hover {
+  text-decoration: none;
+  background: #D82508;
+}
+
+.sidebar .active-users .b-all-tname .b-tname .tstyle-4 {
+  background: #34AFD8;
+}
+
+.sidebar .active-users .b-all-tname .b-tname .tstyle-4:hover {
+  text-decoration: none;
+  background: #0583AC;
+}
+

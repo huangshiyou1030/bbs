@@ -213,5 +213,59 @@ body {
       line-height: 26px;
       font-size: 0.9em;
     }
+    .b-all-tname{
+      overflow: hidden;
+      padding-left: 0px;
+      .b-tname{
+        margin-top: 5px;
+        margin-right: 5px;
+        list-style-type: none;
+        float: left;
+        a{
+          display: block;
+          padding: 0 10px;
+          height: 20px;
+          line-height: 20px;
+          border-radius: 10px;
+          font-family: SimSun;
+          color: #fff;
+          &:hover{
+            border-radius: 0;
+          }
+        }
+        .link-a{
+          margin-right: 5px;
+        }
+        .tstyle-1{
+          background: #43AC6A;
+          &:hover{
+            text-decoration: none;
+            background: #028231;
+          }
+        }
+        .tstyle-2{
+          background: #F3A557;
+          &:hover{
+            text-decoration: none;
+            background: #E97705;
+          }
+        }
+        .tstyle-3{
+          background: #F25E45;
+          &:hover{
+            text-decoration: none;
+            background: #D82508;
+          }
+        }
+        .tstyle-4{
+          background: #34AFD8;
+          &:hover{
+            text-decoration: none;
+            background: #0583AC;
+          }
+        }
+      }
+    }
+
   }
 }
