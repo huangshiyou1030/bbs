@@ -8381,6 +8381,12 @@ body {
   margin-right: 8px;
 }
 
+.navbar-static-top .search {
+  padding: 10px 5px;
+  width: 320px;
+  float: left;
+}
+
 /* Sticky footer styles */
 
 html {

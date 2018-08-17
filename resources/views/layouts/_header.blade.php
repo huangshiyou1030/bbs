@@ -23,8 +23,16 @@
                 @foreach ($categories as $category)
                 <li class="{{ active_class((if_route('categories.show') && if_route_param('category', $category->id))) }}"><a href="{{ route('categories.show', $category->id) }}">{{$category->name}}</a></li>
                 @endforeach
-            </ul>
 
+
+
+            </ul>
+            <div class="search">
+                <form action="{{route('search')}}">
+                    <input  class="searchBox" type="text" name="words" value="">
+                    <input class="searchBar" type="submit" value="搜索">
+                </form>
+            </div>
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->

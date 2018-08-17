@@ -1,9 +1,20 @@
 <?php
 
 namespace App\Models;
-
+use Laravel\Scout\Searchable;
 class Topic extends Model
 {
+    use Searchable;
+
+    /**
+     * 索引的字段
+     *
+     * @return array
+     */
+    public function toSearchableArray()
+    {
+        return $this->only('id', 'title', 'body');
+    }
     protected $fillable = ['title', 'body', 'category_id', 'excerpt', 'slug'];
     public function category(){
         return $this->belongsTo(Category::class);
