@@ -2,8 +2,10 @@
 
 namespace App\Models;
 use Cache;
+use Illuminate\Database\Eloquent\SoftDeletes;
 class Tag extends Model
 {
+    use SoftDeletes;
     //
     protected $fillable = ['name'];
     public $cache_key ='larabbs_tags';
