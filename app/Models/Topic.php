@@ -2,10 +2,11 @@
 
 namespace App\Models;
 use Laravel\Scout\Searchable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 class Topic extends Model
 {
     use Searchable;
-
+    use SoftDeletes;
     /**
      * 索引的字段
      *
