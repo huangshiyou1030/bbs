@@ -45,6 +45,10 @@
                                     <label>
                                         <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
                                     </label>
+
+                                </div>
+                                <div class="col-xs-12 col-md-12 col-lg-12 b-login-row">
+                                            <a  class="col-md-8 col-md-offset-2" href="{{ url('auth/auth/redirectToProvider/qq') }}"><img src="{{ asset('images/qq-login.png') }}" alt="QQ登录" title="QQ登录"></a>
                                 </div>
                             </div>
                         </div>
@@ -59,8 +63,10 @@
                                     Forgot Your Password?
                                 </a>
                             </div>
+
                         </div>
                     </form>
+
                 </div>
             </div>
         </div>

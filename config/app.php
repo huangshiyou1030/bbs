@@ -176,14 +176,20 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        /*
+         * layout 的全局变量
+         */
         App\Providers\ComposerServiceProvider::class,
 
-        /**
+        /*
          * TNTSearch 全文搜索
          */
         Laravel\Scout\ScoutServiceProvider::class,
         Vanry\Scout\TNTSearchScoutServiceProvider::class,
-
+       /*
+        *第三方登陆
+        */
+        SocialiteProviders\Manager\ServiceProvider::class,
     ],
 
     /*
@@ -232,6 +238,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 
     ],
 
