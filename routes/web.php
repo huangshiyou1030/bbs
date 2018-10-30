@@ -12,7 +12,18 @@ use App\Models\Topic;
 */
 
 Route::get('/', 'TopicsController@index')->name('root');
-
+// auth
+Route::group(['namespace' => 'Auth', 'prefix' => 'auth'], function () {
+    // 第三方登录
+    Route::group(['prefix' => 'oauth'], function () {
+        // 重定向
+        Route::get('redirectToProvider/{service}', 'OAuthController@redirectToProvider');
+        // 获取用户资料并登录
+        Route::get('handleProviderCallback/{service}', 'OAuthController@handleProviderCallback');
+        // 退出登录
+        Route::get('bind', 'OAuthController@bind');
+    });
+});
 Auth::routes();
 Route::resource('users', 'UsersController', ['only' => ['show', 'update', 'edit']]);
 Route::resource('topics', 'TopicsController', ['only' => ['index', 'create', 'store', 'update', 'edit', 'destroy']]);
