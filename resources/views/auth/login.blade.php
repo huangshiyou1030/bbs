@@ -61,6 +61,12 @@
                             </div>
                         </div>
                     </form>
+                    <ul>
+                        <li class="col-xs-6 col-md-4 col-lg-4 b-login-img" style="list-style: none">
+                            <a href="{{ url('auth/oauth/redirectToProvider/qq') }}"><img src="{{ asset('images/qq-login.png') }}" alt="QQ登录" title="QQ登录"></a>
+                        </li>
+
+                    </ul>
                 </div>
             </div>
         </div>
