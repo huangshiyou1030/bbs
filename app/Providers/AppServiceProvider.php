@@ -4,6 +4,9 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Cache;
+use App\Models\Category;
+use App\Models\Link;
+use App\Models\Tag;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -11,7 +14,7 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(Category $category, Link $link,Tag $tag)
 	{
         /**
          * 增加内存防止中文分词报错
@@ -26,8 +29,18 @@ class AppServiceProvider extends ServiceProvider
         //
         \Carbon\Carbon::setLocale('zh');
 
-
+        //分配前台通用的数据
+        view()->composer('layouts/*', function($view)use($category,$link,$tag){
+            $links = $link->getAllCached();
+            $tags = $tag->getAllCached();
+            $categories = $category->getAllCached();
+            // 分配数据
+            $assign = compact('links', 'tags', 'categories');
+            $view->with($assign);
+        });
     }
+
+
 
     /**
      * Register any application services.

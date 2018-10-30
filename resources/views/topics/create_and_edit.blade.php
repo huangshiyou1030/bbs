@@ -62,6 +62,7 @@
         $(document).ready(function(){
             var editor = new Simditor({
                 textarea: $('#editor'),
+                toolbar:  ['title', 'bold', 'italic', 'underline', 'strikethrough', 'fontScale', 'color', '|', 'ol', 'ul', 'blockquote', 'table', '|','code', 'link', 'image', 'hr', '|', 'indent', 'outdent', 'alignment'],
                 upload: {
                     url: '{{ route('topics.upload_image') }}',
                     params: { _token: '{{ csrf_token() }}' },

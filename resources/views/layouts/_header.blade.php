@@ -23,9 +23,6 @@
                 @foreach ($categories as $category)
                 <li class="{{ active_class((if_route('categories.show') && if_route_param('category', $category->id))) }}"><a href="{{ route('categories.show', $category->id) }}">{{$category->name}}</a></li>
                 @endforeach
-
-
-
             </ul>
             <div class="search">
                 <form action="{{route('search')}}">

@@ -15,8 +15,6 @@ Route::get('/', 'TopicsController@index')->name('root');
 
 Auth::routes();
 Route::resource('users', 'UsersController', ['only' => ['show', 'update', 'edit']]);
-
-
 Route::resource('topics', 'TopicsController', ['only' => ['index', 'create', 'store', 'update', 'edit', 'destroy']]);
 //Route::get('search', 'TopicsController@search')->name('search');
 Route::resource('categories', 'CategoriesController', ['only' => ['show']]);
