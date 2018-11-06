@@ -50,7 +50,8 @@ class TopicsController extends Controller
         $topic->user_id = Auth::id();
 
         $topic->save();
-        $topicTag->addTagIds($topic->id,$request->tag_ids);
+        dd('11');
+       $topicTag->addTagIds($topic->id,$request->tag_ids);
         return redirect()->to($topic->link())->with('success', '成功创建主题！');
     }
 

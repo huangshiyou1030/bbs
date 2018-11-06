@@ -7,6 +7,7 @@ use Cache;
 use App\Models\Category;
 use App\Models\Link;
 use App\Models\Tag;
+use App\Models\Config;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -28,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
         \App\Models\Category::observe(\App\Observers\CategoryObserver::class);
         //
         \Carbon\Carbon::setLocale('zh');
-
+        Config::loadConfig();
         //分配前台通用的数据
         view()->composer('layouts/*', function($view)use($category,$link,$tag){
             $links = $link->getAllCached();

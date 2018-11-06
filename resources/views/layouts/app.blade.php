@@ -9,9 +9,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title', 'LaraBBS') - {{ setting('site_name', 'php社区') }}</title>
-    <meta name="description" content="@yield('description', setting('seo_description', 'php爱好者社区。'))" />
-    <meta name="keyword" content="@yield('keyword', setting('seo_keyword', 'php,社区,论坛,开发者论坛'))" />
+    <title>{{ config('index_site_name') }}</title>
+    <meta name="description" content="{{  config('index_seo_description') }}" />
+    <meta name="keyword" content="{{ config('index_seo_keyword') }}" />
 
     <!-- Styles -->
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -29,8 +29,9 @@
 
     </div>
 
-    @include('layouts._footer')
+
 </div>
+@include('layouts._footer')
 @if (app()->isLocal())
     @include('sudosu::user-selector')
 @endif
