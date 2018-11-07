@@ -18,9 +18,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot(Category $category, Link $link,Tag $tag)
 	{
         /**
-         * 增加内存防止中文分词报错
+         * 增加内存
          */
-        ini_set('memory_limit', "256M");
+        ini_set('memory_limit', "1024M");
 		\App\Models\User::observe(\App\Observers\UserObserver::class);
 		\App\Models\Reply::observe(\App\Observers\ReplyObserver::class);
 		\App\Models\Topic::observe(\App\Observers\TopicObserver::class);
